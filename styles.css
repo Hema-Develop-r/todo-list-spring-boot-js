@@ -1,0 +1,240 @@
+@charset "ISO-8859-1";
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 350px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#date-time {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: white;
+}
+
+#todo-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    font-size: 16px;
+}
+
+.styled-button {
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+    color: white;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-size: 16px;
+}
+
+.styled-button::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: -1;
+}
+
+.styled-button:hover {
+    background: linear-gradient(135deg, #88d3ce 0%, #6e45e2 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.styled-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#todo-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+#todo-list li:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+#todo-list li.completed {
+    text-decoration: line-through;
+    color: #888;
+    animation: distort-complete 1s forwards;
+}
+
+#todo-list li.added {
+    animation: distort-add 0.5s forwards;
+}
+
+#todo-list li.removed {
+    animation: distort-remove 1s forwards;
+}
+
+#todo-list img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#motivational-quote {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(223, 240, 216, 0.5);
+    color: #3c763d;
+    border: 1px solid rgba(214, 233, 198, 0.5);
+    border-radius: 4px;
+    display: none;
+}
+
+.distorted-text {
+    ffont-size: 2em;
+    background: linear-gradient(90deg, #00c6ff, #0072ff, #00c6ff, #0072ff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glitter 3s linear infinite;
+    position: relative;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+@keyframes distorted-text {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes text-distortion {
+    0%, 100% {
+        clip-path: inset(0% 0% 0% 0%);
+        color: #ff9a9e;
+    }
+    10% {
+        clip-path: inset(10% 0% 90% 0%);
+        color: #fad0c4;
+    }
+    20% {
+        clip-path: inset(15% 0% 85% 0%);
+        color: #fcb69f;
+    }
+    30% {
+        clip-path: inset(20% 0% 80% 0%);
+        color: #ff9a9e;
+    }
+    40% {
+        clip-path: inset(25% 0% 75% 0%);
+        color: #fad0c4;
+    }
+    50% {
+        clip-path: inset(30% 0% 70% 0%);
+        color: #fcb69f;
+    }
+    60% {
+        clip-path: inset(35% 0% 65% 0%);
+        color: #ff9a9e;
+    }
+    70% {
+        clip-path: inset(40% 0% 60% 0%);
+        color: #fad0c4;
+    }
+    80% {
+        clip-path: inset(45% 0% 55% 0%);
+        color: #fcb69f;
+    }
+    90% {
+        clip-path: inset(50% 0% 50% 0%);
+        color: #ff9a9e;
+    }
+}
+
+@keyframes distort-add {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes distort-complete {
+    0% {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes distort-remove {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
